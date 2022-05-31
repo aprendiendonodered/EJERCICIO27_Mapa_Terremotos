@@ -2,15 +2,132 @@
     {
         "id": "ed3739396699bab1",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Básico",
         "disabled": false,
         "info": ""
     },
     {
+        "id": "296b474708347525",
+        "type": "tab",
+        "label": "Versión Mejorada",
+        "disabled": false,
+        "info": "# Flujo terremotos\nFlujo",
+        "env": []
+    },
+    {
+        "id": "32c4a6f107f72a16",
+        "type": "group",
+        "z": "296b474708347525",
+        "name": "Mapas",
+        "style": {
+            "fill": "#bfdbef",
+            "label": true
+        },
+        "nodes": [
+            "0179ef5badd1f526",
+            "4935316d5de6c7d9",
+            "59381ce509471418"
+        ],
+        "x": 814,
+        "y": 219,
+        "w": 212,
+        "h": 202
+    },
+    {
+        "id": "c440b71cc6eefe20",
+        "type": "group",
+        "z": "296b474708347525",
+        "name": "Filtro",
+        "style": {
+            "fill": "#ffbfbf",
+            "label": true
+        },
+        "nodes": [
+            "f099d77ea2318bec",
+            "975553223d6e8529"
+        ],
+        "x": 14,
+        "y": 539,
+        "w": 372,
+        "h": 82
+    },
+    {
+        "id": "b88b528964a3ea35",
+        "type": "group",
+        "z": "296b474708347525",
+        "name": "Extrae, filtra y guarda datos",
+        "style": {
+            "fill": "#ffefbf",
+            "label": true
+        },
+        "nodes": [
+            "c17f139df19c9b81",
+            "ab253e854db40349",
+            "4952bd8b66b6017f",
+            "d7c2bd782a95a3b0",
+            "800fa97a0c4ef048",
+            "29087b40ce1d1cfc",
+            "d4abb3fc263e2c7c",
+            "a41bb21b4324aaf5",
+            "324cdce71ab7df7e",
+            "eeb380c1b6c08e85",
+            "11e3cb1865d7d1d4",
+            "b8d18ae172606341",
+            "4d994291bf6993a6",
+            "f8aafa535a7da2bf"
+        ],
+        "x": 14,
+        "y": 219,
+        "w": 772,
+        "h": 302
+    },
+    {
+        "id": "f3643647d9dc686a",
+        "type": "group",
+        "z": "296b474708347525",
+        "name": "Dibujar un Poligono",
+        "style": {
+            "label": true,
+            "fill": "#ffefbf"
+        },
+        "nodes": [
+            "627aa1977142bdbd",
+            "1803414207303358",
+            "b6bac9ccee19dabb",
+            "9f36dcf6b2b77ed4"
+        ],
+        "x": 414,
+        "y": 539,
+        "w": 372,
+        "h": 122
+    },
+    {
+        "id": "920b73a8ead90c0e",
+        "type": "group",
+        "z": "296b474708347525",
+        "name": "Geofence",
+        "style": {
+            "label": true,
+            "fill": "#ffbfbf"
+        },
+        "nodes": [
+            "938e03da63d91575",
+            "8b1e53425c6c31e1",
+            "b0408b3e090a6c59",
+            "02a45bc82cb79aa3",
+            "6ff1501e616d27da"
+        ],
+        "x": 254,
+        "y": 39,
+        "w": 772,
+        "h": 142
+    },
+    {
         "id": "7be3f314ec249632",
         "type": "ui_tab",
-        "name": "Home",
+        "name": "Versión Básica",
         "icon": "dashboard",
+        "order": 1,
         "disabled": false,
         "hidden": false
     },
@@ -143,6 +260,37 @@
         "height": 1
     },
     {
+        "id": "69b7d38b379296e4",
+        "type": "ui_group",
+        "name": "Actualiza",
+        "tab": "78fb913c6b3740de",
+        "order": 1,
+        "disp": true,
+        "width": 4,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3c6a2ff2f74cc0ef",
+        "type": "ui_group",
+        "name": "Resultado",
+        "tab": "78fb913c6b3740de",
+        "order": 2,
+        "disp": true,
+        "width": 16,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "78fb913c6b3740de",
+        "type": "ui_tab",
+        "name": "Versión Mejorada",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
         "id": "e36406f2.8ef798",
         "type": "inject",
         "z": "ed3739396699bab1",
@@ -205,7 +353,7 @@
         "name": "",
         "active": true,
         "complete": false,
-        "x": 750,
+        "x": 770,
         "y": 120,
         "wires": []
     },
@@ -367,7 +515,7 @@
         "mapurl": "",
         "mapopt": "",
         "mapwms": false,
-        "x": 760,
+        "x": 720,
         "y": 360,
         "wires": []
     },
@@ -396,6 +544,812 @@
         "wires": [
             [
                 "c3c50023.3bbed"
+            ]
+        ]
+    },
+    {
+        "id": "c17f139df19c9b81",
+        "type": "inject",
+        "z": "296b474708347525",
+        "g": "b88b528964a3ea35",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3600",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "ab253e854db40349"
+            ]
+        ]
+    },
+    {
+        "id": "ab253e854db40349",
+        "type": "http request",
+        "z": "296b474708347525",
+        "g": "b88b528964a3ea35",
+        "name": "API Terremotos",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.csv",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 340,
+        "y": 260,
+        "wires": [
+            [
+                "d7c2bd782a95a3b0"
+            ]
+        ],
+        "inputLabels": [
+            "url"
+        ],
+        "outputLabels": [
+            "csv"
+        ],
+        "info": "Llamada API Terremotos"
+    },
+    {
+        "id": "4952bd8b66b6017f",
+        "type": "csv",
+        "z": "296b474708347525",
+        "g": "b88b528964a3ea35",
+        "name": "",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "all",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": false,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 450,
+        "y": 320,
+        "wires": [
+            [
+                "29087b40ce1d1cfc"
+            ]
+        ]
+    },
+    {
+        "id": "d7c2bd782a95a3b0",
+        "type": "csv",
+        "z": "296b474708347525",
+        "g": "b88b528964a3ea35",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 510,
+        "y": 260,
+        "wires": [
+            [
+                "800fa97a0c4ef048"
+            ]
+        ]
+    },
+    {
+        "id": "800fa97a0c4ef048",
+        "type": "switch",
+        "z": "296b474708347525",
+        "g": "b88b528964a3ea35",
+        "name": "",
+        "property": "payload.mag",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "mag",
+                "vt": "flow"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 630,
+        "y": 260,
+        "wires": [
+            [
+                "d4abb3fc263e2c7c",
+                "4935316d5de6c7d9"
+            ]
+        ]
+    },
+    {
+        "id": "29087b40ce1d1cfc",
+        "type": "file",
+        "z": "296b474708347525",
+        "g": "b88b528964a3ea35",
+        "name": "",
+        "filename": "/data/terremotos.csv",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 620,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d4abb3fc263e2c7c",
+        "type": "join",
+        "z": "296b474708347525",
+        "g": "b88b528964a3ea35",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "5",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 330,
+        "y": 320,
+        "wires": [
+            [
+                "4952bd8b66b6017f"
+            ]
+        ]
+    },
+    {
+        "id": "324cdce71ab7df7e",
+        "type": "ui_button",
+        "z": "296b474708347525",
+        "g": "b88b528964a3ea35",
+        "name": "",
+        "group": "69b7d38b379296e4",
+        "order": 2,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "label": "Muestra Tabla",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 120,
+        "y": 420,
+        "wires": [
+            [
+                "eeb380c1b6c08e85"
+            ]
+        ]
+    },
+    {
+        "id": "eeb380c1b6c08e85",
+        "type": "file in",
+        "z": "296b474708347525",
+        "g": "b88b528964a3ea35",
+        "name": "",
+        "filename": "/data/terremotos.csv",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 360,
+        "y": 420,
+        "wires": [
+            [
+                "b8d18ae172606341"
+            ]
+        ]
+    },
+    {
+        "id": "0179ef5badd1f526",
+        "type": "worldmap",
+        "z": "296b474708347525",
+        "g": "32c4a6f107f72a16",
+        "name": "",
+        "lat": "42.47",
+        "lon": "-2.44",
+        "zoom": "2",
+        "layer": "OSMG",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "show",
+        "layers": "show",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "false",
+        "coords": "none",
+        "showgrid": "false",
+        "allowFileDrop": "false",
+        "path": "/worldmap",
+        "overlist": "DR,CO,RA,DN,HM",
+        "maplist": "OSMG,OSMC,EsriC,EsriS,EsriT,EsriDG,UKOS",
+        "mapname": "",
+        "mapurl": "",
+        "mapopt": "",
+        "mapwms": false,
+        "x": 900,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "4935316d5de6c7d9",
+        "type": "change",
+        "z": "296b474708347525",
+        "g": "32c4a6f107f72a16",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload.latitude",
+                "pt": "msg",
+                "to": "payload.lat",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.lon",
+                "pt": "msg",
+                "to": "payload.longitude",
+                "tot": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload.place",
+                "pt": "msg",
+                "to": "payload.name",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.layer",
+                "pt": "msg",
+                "to": "puntos",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 920,
+        "y": 260,
+        "wires": [
+            [
+                "59381ce509471418",
+                "0179ef5badd1f526",
+                "938e03da63d91575"
+            ]
+        ]
+    },
+    {
+        "id": "59381ce509471418",
+        "type": "ui_worldmap",
+        "z": "296b474708347525",
+        "g": "32c4a6f107f72a16",
+        "group": "3c6a2ff2f74cc0ef",
+        "order": 2,
+        "width": 16,
+        "height": 9,
+        "name": "",
+        "lat": "42.47",
+        "lon": "-2.44",
+        "zoom": "2",
+        "layer": "OSMG",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "hide",
+        "layers": "hide",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "true",
+        "coords": "none",
+        "showgrid": "false",
+        "allowFileDrop": "false",
+        "path": "/worldmap",
+        "overlist": "DR,CO,RA,DN,HM",
+        "maplist": "OSMG,OSMC,EsriC,EsriS,EsriT,EsriDG,UKOS",
+        "mapname": "",
+        "mapurl": "",
+        "mapopt": "",
+        "mapwms": false,
+        "x": 900,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "a41bb21b4324aaf5",
+        "type": "ui_button",
+        "z": "296b474708347525",
+        "g": "b88b528964a3ea35",
+        "name": "",
+        "group": "69b7d38b379296e4",
+        "order": 1,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "label": "Actualiza Mapa",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 120,
+        "y": 300,
+        "wires": [
+            [
+                "ab253e854db40349",
+                "f8aafa535a7da2bf"
+            ]
+        ]
+    },
+    {
+        "id": "b8d18ae172606341",
+        "type": "csv",
+        "z": "296b474708347525",
+        "g": "b88b528964a3ea35",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "mult",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 570,
+        "y": 420,
+        "wires": [
+            [
+                "11e3cb1865d7d1d4"
+            ]
+        ]
+    },
+    {
+        "id": "4d994291bf6993a6",
+        "type": "inject",
+        "z": "296b474708347525",
+        "g": "b88b528964a3ea35",
+        "name": "Inicializa tabla",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "x": 520,
+        "y": 480,
+        "wires": [
+            [
+                "11e3cb1865d7d1d4"
+            ]
+        ]
+    },
+    {
+        "id": "f099d77ea2318bec",
+        "type": "ui_text_input",
+        "z": "296b474708347525",
+        "g": "c440b71cc6eefe20",
+        "name": "",
+        "label": "Filtro magnitud",
+        "tooltip": "",
+        "group": "69b7d38b379296e4",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 120,
+        "y": 580,
+        "wires": [
+            [
+                "975553223d6e8529"
+            ]
+        ]
+    },
+    {
+        "id": "975553223d6e8529",
+        "type": "change",
+        "z": "296b474708347525",
+        "g": "c440b71cc6eefe20",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "mag",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f8aafa535a7da2bf",
+        "type": "change",
+        "z": "296b474708347525",
+        "g": "b88b528964a3ea35",
+        "name": "Limpia capa",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"command\":{\"clear\":\"puntos\"}}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 360,
+        "wires": [
+            [
+                "0179ef5badd1f526",
+                "59381ce509471418"
+            ]
+        ]
+    },
+    {
+        "id": "8b1e53425c6c31e1",
+        "type": "inject",
+        "z": "296b474708347525",
+        "g": "920b73a8ead90c0e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload.action",
+                "v": "send",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "x": 350,
+        "y": 120,
+        "wires": [
+            [
+                "938e03da63d91575"
+            ]
+        ]
+    },
+    {
+        "id": "b0408b3e090a6c59",
+        "type": "debug",
+        "z": "296b474708347525",
+        "g": "920b73a8ead90c0e",
+        "name": "Dentro",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "627aa1977142bdbd",
+        "type": "worldmap-hull",
+        "z": "296b474708347525",
+        "g": "f3643647d9dc686a",
+        "name": "",
+        "prop": "layer",
+        "x": 690,
+        "y": 580,
+        "wires": [
+            [
+                "0179ef5badd1f526",
+                "59381ce509471418"
+            ]
+        ]
+    },
+    {
+        "id": "1803414207303358",
+        "type": "inject",
+        "z": "296b474708347525",
+        "g": "f3643647d9dc686a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payload": "[{\"lat\":42.465679,\"lon\":-2.44998,\"layer\":\"poligono\",\"name\":\"Logroño\"},{\"lat\":41.154819,\"lon\":1.10865,\"layer\":\"poligono\",\"name\":\"Reus\"},{\"lat\":39.470242,\"lon\":-0.3768,\"layer\":\"poligono\",\"name\":\"Valencia\"}]",
+        "payloadType": "json",
+        "x": 530,
+        "y": 580,
+        "wires": [
+            [
+                "627aa1977142bdbd"
+            ]
+        ]
+    },
+    {
+        "id": "b6bac9ccee19dabb",
+        "type": "change",
+        "z": "296b474708347525",
+        "g": "f3643647d9dc686a",
+        "name": "Limpia capa",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"command\":{\"clear\":\"poligono\"}}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 620,
+        "wires": [
+            [
+                "0179ef5badd1f526",
+                "59381ce509471418"
+            ]
+        ]
+    },
+    {
+        "id": "9f36dcf6b2b77ed4",
+        "type": "inject",
+        "z": "296b474708347525",
+        "g": "f3643647d9dc686a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 520,
+        "y": 620,
+        "wires": [
+            [
+                "b6bac9ccee19dabb"
+            ]
+        ]
+    },
+    {
+        "id": "02a45bc82cb79aa3",
+        "type": "switch",
+        "z": "296b474708347525",
+        "g": "920b73a8ead90c0e",
+        "name": "",
+        "property": "location.inarea",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 710,
+        "y": 120,
+        "wires": [
+            [
+                "b0408b3e090a6c59"
+            ],
+            [
+                "6ff1501e616d27da"
+            ]
+        ]
+    },
+    {
+        "id": "6ff1501e616d27da",
+        "type": "debug",
+        "z": "296b474708347525",
+        "g": "920b73a8ead90c0e",
+        "name": "Fuera",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "11e3cb1865d7d1d4",
+        "type": "ui_table",
+        "z": "296b474708347525",
+        "g": "b88b528964a3ea35",
+        "group": "3c6a2ff2f74cc0ef",
+        "name": "",
+        "order": 1,
+        "width": 16,
+        "height": 3,
+        "columns": [
+            {
+                "field": "time",
+                "title": "time",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "latitude",
+                "title": "latitude",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "longitude",
+                "title": "longitude",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "mag",
+                "title": "mag",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "place",
+                "title": "place",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 710,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "938e03da63d91575",
+        "type": "geofence",
+        "z": "296b474708347525",
+        "g": "920b73a8ead90c0e",
+        "name": "Terremotos",
+        "mode": "circle",
+        "inside": "both",
+        "rad": 2864440.3378358963,
+        "points": [],
+        "centre": {
+            "latitude": -2.7455307188019398,
+            "longitude": -75.146484375
+        },
+        "floor": "",
+        "ceiling": "",
+        "worldmap": true,
+        "outputs": 2,
+        "x": 530,
+        "y": 120,
+        "wires": [
+            [
+                "02a45bc82cb79aa3"
+            ],
+            [
+                "0179ef5badd1f526",
+                "59381ce509471418"
             ]
         ]
     }
